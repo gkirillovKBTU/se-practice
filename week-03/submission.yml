@@ -1,0 +1,38 @@
+schema: 1
+week: "03"
+
+student:
+  name: Kirillov Grigoriy
+  student_id: 24B031850
+  github: gkirillovKBTU
+
+assistant:
+  tool: "Codex"
+  model: "gpt-5.6-terra"
+
+counts:
+  user_stories: 7
+  acceptance_criteria_sets: 3
+
+checker:
+  pass: 23
+  fail: 0
+  error: 0
+  commit: a0285f43e01aef167edb45ccde27b3978a29b530
+
+assumptions:
+  overlap_touching_bookings: allowed
+  exactly_two_hours: allowed
+
+traceability:
+  use_cases_not_covered: ["UC-03", "UC-05", "UC-06"]
+  stories_not_traced: ["US-07"]
+
+review_findings:
+  - "US-02 was revised to state future start, maximum duration, overlap, and blocked-room constraints explicitly."
+  - "AC-04 through AC-08 test all booking rules, including the exact two-hour and touching-booking boundaries."
+  - "UC-06 is system-triggered after booking or cancellation"
+
+honesty:
+  can_explain_everything_submitted: yes
+  ai_usage_disclosed: yes
