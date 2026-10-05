@@ -1,0 +1,14 @@
+@startuml
+actor Student
+participant BookingService
+participant BookingRepository
+
+Student -> BookingService: bookRoom(roomId, startTime, endTime)
+BookingService -> BookingRepository: saveBooking(roomId, startTime, endTime)
+BookingRepository --> BookingService: booking
+alt success
+  BookingService --> Student: confirmation
+else unavailable
+  BookingService --> Student: unavailable
+end
+@enduml

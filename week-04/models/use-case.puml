@@ -1,0 +1,30 @@
+@startuml
+left to right direction
+actor Student
+actor Administrator
+
+rectangle "Smart Campus study room booking system" {
+  usecase "View availability" as ViewAvailability
+  usecase "Book room" as BookRoom
+  usecase "Cancel booking" as CancelBooking
+  usecase "Block or unblock room" as BlockUnblockRoom
+  usecase "Review usage" as ReviewUsage
+  usecase "Produce confirmation" as ProduceConfirmation
+
+  ' why: R4 makes confirmation a mandatory outcome whenever a booking succeeds.
+  BookRoom .> ProduceConfirmation : <<include>>
+}
+
+Student --> ViewAvailability
+Student --> BookRoom
+Student --> CancelBooking
+Administrator --> BlockUnblockRoom
+Administrator --> ReviewUsage
+
+note bottom of BookRoom
+Assumptions:
+A1: Touching bookings are allowed.
+A2: Blocking keeps existing bookings;
+it prevents new bookings only.
+end note
+@enduml
