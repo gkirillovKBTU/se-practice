@@ -1,0 +1,21 @@
+@startuml
+class User {
+  +id: String
+  +name: String
+}
+class Student
+class Room {
+  +roomId: String
+  +blocked: Boolean
+}
+class Booking {
+  +startTime: DateTime
+  +endTime: DateTime
+}
+class BookingService
+
+User <|-- Student
+Student "1" *-- "1..*" Booking
+Room "1" -- "1..*" Booking
+BookingService ..> Booking
+@enduml

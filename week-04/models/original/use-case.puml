@@ -1,0 +1,25 @@
+@startuml
+left to right direction
+actor Student
+actor Administrator
+rectangle "Smart Campus System" {
+  usecase "View availability" as ViewAvailability
+  usecase "Book room" as BookRoom
+  usecase "Cancel booking" as CancelBooking
+  usecase "Block or unblock room" as BlockRoom
+  usecase "Review usage" as ReviewUsage
+  usecase "Send confirmation" as SendConfirmation
+}
+Student --> ViewAvailability
+Student --> BookRoom
+Student --> CancelBooking
+Student --> ReviewUsage
+Student --> SendConfirmation
+Administrator --> BlockRoom
+Administrator --> ReviewUsage
+note bottom of BookRoom
+Assumptions:
+- Touching bookings do not overlap.
+- Blocking keeps existing bookings.
+end note
+@enduml
