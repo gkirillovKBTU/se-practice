@@ -1,0 +1,53 @@
+# week-05/submission.yml — your declaration for this lab.
+#
+# Facts only. Every explanation goes in lab-report.md; nothing here repeats prose.
+# Fill every value. Check it before you push:
+#
+#     python tests/validate_submission.py
+#
+# The validator checks shape, never quality. A green run is the floor, not the grade.
+# If you cannot run Python, fill the file by hand against the comments — a malformed
+# file costs you nothing if the content is there.
+schema: 1
+week: "05"
+
+student:
+  name: Kirillov Grigoriy
+  student_id: 24B031850
+  github: gkirillovKBTU
+
+assistant:
+  tool: Configured local agent
+  model: gpt-5.6-terra
+
+language:
+  name: python
+  path: A
+
+counts:
+  tests: 18
+  v1_changed: no
+  change_log_rows: 1
+
+checker:
+  pass: 32
+  fail: 0
+  error: 0
+  commit: 5a4351c
+  known_fails: []
+
+assumptions:
+  non_integer_time: not-handled
+
+carried:
+  week04_touching: allowed
+
+review_findings:
+  - "AC1: test_end_after_day_bound_is_rejected isolates the upper day bound with a valid 61-minute duration."
+  - "AC4: v1 uses strict overlap comparisons, so touching endpoints are allowed."
+  - "AC5: test_existing_list_is_unchanged confirms existing remains unchanged."
+
+honesty:
+  v1_unedited: yes
+  can_explain_overlap_without_ai: yes
+  ai_usage_disclosed: yes
