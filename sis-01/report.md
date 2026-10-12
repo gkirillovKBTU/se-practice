@@ -105,8 +105,8 @@ Finally, support ownership should be agreed. The coordinator can collect reports
 
 ### B2 — Critique (Prompt B)
 
-- **Tool:** Configured local OpenAI-compatible assistant
-- **Model:** not displayed
+- **Tool:** Codex
+- **Model:** gpt-5.6-terra
 - **Date:** 2026-10-10
 - **Purpose:** critical review of the draft
 
@@ -140,8 +140,8 @@ Finally, support ownership should be agreed. The coordinator can collect reports
 
 ### B3 — Revision (Prompt C)
 
-- **Tool:** Configured local OpenAI-compatible assistant
-- **Model:** not displayed
+- **Tool:** Codex
+- **Model:** gpt-5.6-terra
 - **Date:** 2026-10-10
 - **Purpose:** revision using review decisions and local evidence
 
