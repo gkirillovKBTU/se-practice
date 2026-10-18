@@ -1,0 +1,32 @@
+@startuml
+actor Student
+participant "Course Catalog" as Catalog
+participant RegistrationService
+participant EnrollmentRepository
+
+autonumber
+Student -> Catalog : browse catalog for semester
+Catalog --> Student : show course code, title, offering, available places
+Student -> Catalog : select offering
+Student -> RegistrationService : request registration for offering
+critical atomic registration
+  note over RegistrationService, EnrollmentRepository
+  Atomic final duplicate check, capacity check, Enrollment creation,
+  and derived available-places update; catalog browsing reserves nothing.
+  end note
+  RegistrationService -> EnrollmentRepository : check duplicate enrollment
+  EnrollmentRepository --> RegistrationService : return duplicate status
+  RegistrationService -> EnrollmentRepository : check current capacity and enrollment count
+  EnrollmentRepository --> RegistrationService : return current available places
+  alt already enrolled
+    RegistrationService --> Student : reject: already enrolled
+  else course full
+    RegistrationService --> Student : reject: course full
+  else not enrolled and places left
+    RegistrationService -> EnrollmentRepository : create Enrollment
+    EnrollmentRepository -> EnrollmentRepository : commit enrollment count and derived available places
+    EnrollmentRepository --> RegistrationService : return Enrollment created
+    RegistrationService --> Student : confirm registration
+  end
+end
+@enduml
