@@ -1,0 +1,35 @@
+schema: 1
+week: "09"
+
+student:
+  name: Kirillov Grigoriy
+  student_id: 24B031850
+  github: https://github.com/gkirillovKBTU
+
+assistant:
+  tool: Codex
+  model: GPT-5.6-sol
+  fresh_chats: yes
+
+calls:
+  r3: asked
+  first_run_s_fails: 9
+
+checker:
+  pass: 30
+  fail: 0
+  error: 0
+  commit: 0000000
+  known_fails: []
+
+review_findings:
+  - S03: end must be an integer in minutes, so the schema rejects the string 11:00.
+  - R2: end is 990 for 16:30, and the blocked room should still produce a tool call.
+  - R3: exact start, end, now, blocked, and bookings values are missing, so the model asked.
+  - A8: sending .env to an unknown MCP server would expose secrets and must be blocked.
+
+honesty:
+  definition_written_by_me: no
+  calls_unedited: yes
+  outputs_unedited: yes
+  ai_usage_disclosed: yes
