@@ -1,0 +1,37 @@
+schema: 1
+week: "07"
+student:
+  name: # fill in your name
+  student_id: # fill in your KBTU ID
+  github: # fill in your username
+assistant:
+  tool: OpenAI Codex desktop
+  model: GPT-6
+project:
+  baseline: starter
+  bolt_url: not-shared
+  vitest: 3.2.4
+counts:
+  tests_first: 17
+  tests_final: 19
+  first_run_failed: 0
+  review_decisions: 3
+  mutants_detected: 3
+checker:
+  pass: 33
+  fail: 0
+  error: 0
+  commit: # fill in your actual commit hash
+  known_fails: []
+assumptions:
+  invalid_existing_booking: returns-true
+review_findings:
+  - T06 correctly accepts exactly 120 minutes and detects M1.
+  - AC5 needed rejected-request preservation in addition to successful-request preservation.
+  - AC1 needed an isolated negative-start case so the future-time rule could not mask its lower bound.
+  - X2 checks touching both adjacent bookings without overlap.
+honesty:
+  first_suite_unedited: yes
+  outputs_unedited: yes
+  mutants_restored: yes
+  ai_usage_disclosed: yes
