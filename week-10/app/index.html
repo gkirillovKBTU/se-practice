@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Check the availability of one fictional campus room." />
+    <title>Smart Campus Room Checker</title>
+    <link rel="stylesheet" href="./src/styles.css" />
+  </head>
+  <body>
+    <div id="root">
+      <main class="shell">
+        <section class="hero" aria-labelledby="page-title">
+          <p class="eyebrow">Smart Campus · Room checker</p>
+          <h1 id="page-title">Find a quiet hour between classes.</h1>
+          <p class="intro">One fictional room, one clear answer, and no booking data is changed.</p>
+        </section>
+        <section class="checker" aria-label="Availability checker">
+          <div class="room-heading"><div><span class="label">Selected room</span><h2>North Hall 204</h2></div><span class="room-state">Open for checks</span></div>
+          <div class="schedule" aria-label="Existing bookings"><span class="label">Booked on 10 May 2030</span><div><span class="booking">10:00–11:00</span><span class="booking">14:00–15:30</span></div></div>
+          <form>
+            <label>Start<input type="datetime-local" value="2030-05-10T11:00" /></label>
+            <label>End<input type="datetime-local" value="2030-05-10T12:00" /></label>
+            <button type="button">Check availability</button>
+          </form>
+          <div class="result idle" role="status"><span class="result-dot" aria-hidden="true"></span><div><strong>Ready when you are</strong><p>Choose an interval to check this room.</p></div></div>
+        </section>
+      </main>
+    </div>
+    <script type="module" src="./src/main.tsx"></script>
+  </body>
+</html>
