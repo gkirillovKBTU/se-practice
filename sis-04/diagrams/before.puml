@@ -1,0 +1,11 @@
+@startuml
+title Smart Campus — starter structure
+skinparam componentStyle rectangle
+
+component "main.tsx" as Main
+component "App.tsx\nUI + room data + booking rules" as App
+component "index.css" as Styles
+
+Main --> App : imports
+Main --> Styles : imports
+@enduml
