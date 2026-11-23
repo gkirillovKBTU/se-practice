@@ -1,0 +1,71 @@
+# week-10/submission.yml — your declaration for this lab.
+#
+# Facts only. Every explanation goes in lab-report.md; nothing here repeats prose.
+# Fill every value. Check it before you push:
+#
+#     python tests/validate_submission.py
+#
+# The validator checks shape, never quality. A green run is the floor, not the grade.
+# If you cannot run Python, fill the file by hand against the comments — a malformed
+# file costs you nothing if the content is there.
+
+schema: 1
+week: "10"
+
+student:
+  name: Student name not provided
+  student_id: 00X000000          # replace with the KBTU student ID before submission
+  github: not-applicable         # GitHub tasks were excluded for this local completion
+
+assistant:
+  tool: OpenAI Codex
+  model: gpt-5.6-sol
+  environment: other
+
+project:
+  starting_point: week-07
+  baseline_commit: 0000000
+  language: ts
+  vitest: 4.0.8
+
+counts:
+  claims_challenged: 6
+  risks_registered: 5
+  risks_confirmed: 3
+  tests_final: 9
+  agents_lines_changed: 6
+
+audit:
+  level: 2
+
+decision:
+  top_two: [R2, R1]
+  mitigated: [R1, R2]
+  release: go
+
+checker:
+  # Numbers from YOUR last run of: python tests/check_audit.py
+  # They must add up to the number of checks it runs (31).
+  # Report them as they came out.
+  # A FAIL you report and explain in lab-report.md costs you nothing extra. A hidden one costs the criterion.
+  pass: 31
+  fail: 0
+  error: 0
+  commit: 0000000      # local marker because Git is unavailable
+                       # (normally the commit just before you commit this file — that is fine)
+  known_fails: []      # every check ID that is still FAIL or ERROR, explained in lab-report.md §9.3, e.g. [E2]
+
+review_findings:
+  # Three or more. One line each, and each one names what it is about: a risk ID (R1...), a
+  # constraint (C1-C6), an AC, a readiness row (1a-3d), or a file.
+  # Worthless:        "The AI found some risks that were not real"
+  # Worth everything: "R3: the AI said canBook mutates bookings; src/booking.ts has no push since the BUG-B fix - unsupported"
+  - R1 and AC4: inclusive comparisons in src/booking.ts rejected endpoint touching until the pure interval refactor
+  - R2 and AGENTS.md: the original playbook permitted real data, Supabase/login, and an external production deploy
+  - 3a and 3c: app has no CI workflow or App.tsx integration check, so Level 3 is not reached
+
+honesty:
+  review_was_read_only: yes
+  agents_patch_approved_by_me: yes
+  outputs_unedited: yes
+  ai_usage_disclosed: yes
